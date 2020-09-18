@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="damage"
+            type="ir.topcoders.pol.data.model.BridgeDamageWithImage" />
+
+        <import type="ir.topcoders.pol.R" />
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="2dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            tools:context=".view.adapters.DamageAdapter">
+
+            <ImageView
+                android:id="@+id/damageImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:src="@{damage.imageFileName}"
+                app:bridgeId="@{damage.bridgeId}"
+                app:damageId="@{damage.damageId}"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:placeholder="@{R.drawable.ic_damage_placeholder}"
+                app:roadId="@{damage.roadId}" />
+
+            <TextView
+                android:id="@+id/elementTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                android:singleLine="false"
+                android:text="عضو: "
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintRight_toLeftOf="@+id/damageImageView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/elementTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:singleLine="false"
+                app:layout_constraintRight_toLeftOf="@+id/elementTitleTextView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="element" />
+
+            <TextView
+                android:id="@+id/damageTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                android:text="آسیب: "
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintRight_toLeftOf="@+id/damageImageView"
+                app:layout_constraintTop_toBottomOf="@+id/elementTextView" />
+
+            <TextView
+                android:id="@+id/damageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                app:layout_constraintRight_toLeftOf="@+id/damageTitleTextView"
+                app:layout_constraintTop_toBottomOf="@+id/elementTextView"
+                tools:text="damage" />
+
+            <TextView
+                android:id="@+id/damageLevelTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                android:text="میزان آسیب: "
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintRight_toLeftOf="@+id/damageImageView"
+                app:layout_constraintTop_toBottomOf="@+id/damageTextView" />
+
+            <TextView
+                android:id="@+id/damageLevelTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                app:layout_constraintRight_toLeftOf="@+id/damageLevelTitleTextView"
+                app:layout_constraintTop_toBottomOf="@+id/damageTextView"
+                tools:text="damage level" />
+
+            <TextView
+                android:id="@+id/investigationStatusTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                android:text="امکان مشاهده زیر پل: "
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintRight_toLeftOf="@+id/damageImageView"
+                app:layout_constraintTop_toBottomOf="@+id/damageLevelTextView" />
+
+            <TextView
+                android:id="@+id/investigationStatusTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                app:layout_constraintRight_toLeftOf="@+id/investigationStatusTitleTextView"
+                app:layout_constraintTop_toBottomOf="@+id/damageLevelTextView"
+                tools:text="damage level" />
+
+            <TextView
+                android:id="@+id/investigationProblemTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                android:text="علت: "
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintRight_toLeftOf="@+id/damageImageView"
+                app:layout_constraintTop_toBottomOf="@+id/investigationStatusTextView" />
+
+            <TextView
+                android:id="@+id/investigationProblemTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                app:layout_constraintRight_toLeftOf="@+id/investigationProblemTitleTextView"
+                app:layout_constraintTop_toBottomOf="@+id/investigationStatusTextView"
+                tools:text="damage level" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</layout>

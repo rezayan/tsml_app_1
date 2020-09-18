@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="damageImage"
+            type="ir.topcoders.pol.data.model.DamageImagesWithFullInfo" />
+
+        <import type="ir.topcoders.pol.R" />
+
+        <import type="ir.topcoders.pol.utils.StringUtils" />
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="2dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            tools:context=".view.adapters.DamageImageAdapter">
+
+            <ImageView
+                android:id="@+id/damageImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:src="@{damageImage.damageImageFilename}"
+                app:bridgeId="@{damageImage.bridgeId}"
+                app:damageId="@{damageImage.damageId}"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:placeholder="@{R.drawable.ic_damage_placeholder}"
+                app:roadId="@{damageImage.roadId}" />
+
+            <TextView
+                android:id="@+id/gpsXTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                android:singleLine="false"
+                android:text=" :X"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintRight_toLeftOf="@+id/damageImageView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/gpsXTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:singleLine="false"
+                android:text='@{damageImage.gpsX==null ? "-": StringUtils.format("%.7f",damageImage.gpsX)}'
+                app:layout_constraintRight_toLeftOf="@+id/gpsXTitleTextView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="X" />
+
+            <TextView
+                android:id="@+id/gpsYTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                android:text=" :Y"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintRight_toLeftOf="@+id/damageImageView"
+                app:layout_constraintTop_toBottomOf="@+id/gpsXTextView" />
+
+            <TextView
+                android:id="@+id/gpsYTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                android:text='@{damageImage.gpsY==null ? "-": StringUtils.format("%.7f",damageImage.gpsY)}'
+                app:layout_constraintRight_toLeftOf="@+id/gpsYTitleTextView"
+                app:layout_constraintTop_toBottomOf="@+id/gpsXTextView"
+                tools:text="Y" />
+
+            <TextView
+                android:id="@+id/azimuthTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                android:text="آزیموت: "
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintRight_toLeftOf="@+id/damageImageView"
+                app:layout_constraintTop_toBottomOf="@+id/gpsYTextView" />
+
+            <TextView
+                android:id="@+id/azimuthTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                android:text='@{damageImage.azimuth==null ? "-": StringUtils.format("%.3f",damageImage.azimuth)}'
+                app:layout_constraintRight_toLeftOf="@+id/azimuthTitleTextView"
+                app:layout_constraintTop_toBottomOf="@+id/gpsYTextView"
+                tools:text="azimuth" />
+
+            <TextView
+                android:id="@+id/dateTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                android:text="تاریخ: "
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintRight_toLeftOf="@+id/damageImageView"
+                app:layout_constraintTop_toBottomOf="@+id/azimuthTextView" />
+
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                android:text='@{damageImage.captureDate}'
+                app:layout_constraintRight_toLeftOf="@+id/dateTitleTextView"
+                app:layout_constraintTop_toBottomOf="@+id/azimuthTextView"
+                tools:text="date" />
+
+            <Button
+                android:id="@+id/removeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:singleLine="false"
+                android:text="حذف"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dateTextView" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</layout>

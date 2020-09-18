@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        app:constraint_referenced_ids="dateTitle,azimuthTitle,gpsTitle" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="ثبت اطلاعات تصویر"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/dateTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="تاریخ"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dateValue"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/dateValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="8dp"
+        android:editable="false"
+        android:singleLine="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/barrier"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:text="1389/01/01" />
+
+    <com.redinput.compassview.CompassView
+        android:id="@+id/compass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintRight_toRightOf="@+id/dateValue"
+        app:layout_constraintLeft_toLeftOf="@id/dateValue"
+        app:layout_constraintTop_toBottomOf="@+id/dateValue"
+        app:backgroundColor="#000000"
+        app:showMarker="true"
+        app:markerColor="#FF0000"
+        app:lineColor="#FFFFFF"
+        app:textColor="#FFFFFF"
+        app:textSize="15sp"
+        app:degrees="0"
+        app:rangeDegrees="180.0" />
+
+    <TextView
+        android:id="@+id/azimuthTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="زاویه آزیموت"
+        app:layout_constraintBaseline_toBaselineOf="@+id/azimuthValue"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/azimuthValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="8dp"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/barrier"
+        app:layout_constraintTop_toBottomOf="@+id/compass"
+        tools:text="0" />
+
+    <Button
+        android:id="@+id/receiveFromCompassButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:singleLine="true"
+        android:text="دریافت از قطب نما"
+        app:layout_constraintLeft_toLeftOf="@+id/azimuthValue"
+        app:layout_constraintRight_toRightOf="@+id/azimuthValue"
+        app:layout_constraintTop_toBottomOf="@+id/azimuthValue" />
+
+    <TextView
+        android:id="@+id/gpsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="موقعیت"
+        app:layout_constraintBaseline_toBaselineOf="@+id/gpsXValue"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/gpsXValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="8dp"
+        android:hint="X"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        app:layout_constraintEnd_toStartOf="@+id/gpsYValue"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/receiveFromCompassButton" />
+
+    <EditText
+        android:id="@+id/gpsYValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="8dp"
+        android:hint="Y"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        app:layout_constraintEnd_toStartOf="@+id/barrier"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/gpsXValue"
+        app:layout_constraintTop_toBottomOf="@+id/receiveFromCompassButton" />
+
+    <Button
+        android:id="@+id/setFromGpsServiceButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="اخذ موقعیت از GPS"
+        app:layout_constraintLeft_toLeftOf="@+id/gpsXValue"
+        app:layout_constraintRight_toRightOf="@+id/gpsYValue"
+        app:layout_constraintTop_toBottomOf="@+id/gpsXValue" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="ذخیره"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setFromGpsServiceButton" />
+
+</android.support.constraint.ConstraintLayout>

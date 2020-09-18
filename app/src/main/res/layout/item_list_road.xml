@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="road"
+            type="ir.topcoders.pol.data.model.RoadWithBridgeCount" />
+
+        <import type="ir.topcoders.pol.R" />
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        android:background="@{road.isSelected ? @color/card_selection : @color/card_normal}"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="2dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            tools:context=".view.adapters.RoadAdapter">
+
+            <TextView
+                android:id="@+id/roadCodeTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:singleLine="false"
+                android:text="کد مسیر: "
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/roadCodeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:singleLine="false"
+                android:text='@{road.code}'
+                app:layout_constraintRight_toLeftOf="@+id/roadCodeTitleTextView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="road Code" />
+
+            <TextView
+                android:id="@+id/roadStartNameTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:singleLine="false"
+                android:text="مبدا محور: "
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/roadCodeTextView" />
+
+            <TextView
+                android:id="@+id/roadStartNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:singleLine="false"
+                android:text='@{road.startName}'
+                app:layout_constraintRight_toLeftOf="@+id/roadStartNameTitleTextView"
+                app:layout_constraintTop_toBottomOf="@+id/roadCodeTextView"
+                tools:text="roadStartName" />
+
+            <TextView
+                android:id="@+id/roadEndNameTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:singleLine="false"
+                android:text="مقصد محور: "
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/roadStartNameTextView" />
+
+            <TextView
+                android:id="@+id/roadEndNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:singleLine="false"
+                android:text='@{road.stopName}'
+                app:layout_constraintRight_toLeftOf="@+id/roadEndNameTitleTextView"
+                app:layout_constraintTop_toBottomOf="@+id/roadStartNameTextView"
+                tools:text="roadEndName" />
+
+            <TextView
+                android:id="@+id/bridgeCountTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:singleLine="false"
+                android:text="تعداد پل: "
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/roadEndNameTextView" />
+
+            <TextView
+                android:id="@+id/bridgeCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:singleLine="false"
+                android:text='@{String.valueOf(road.bridgeCount)}'
+                app:layout_constraintRight_toLeftOf="@+id/bridgeCountTitleTextView"
+                app:layout_constraintTop_toBottomOf="@+id/roadEndNameTextView"
+                tools:text="bridge count" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</layout>

@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.activities.MainActivity">
+
+    <data>
+
+        <variable
+            name="bridge"
+            type="ir.topcoders.pol.data.model.Bridge" />
+
+        <import type="ir.topcoders.pol.R" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/satelliteTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="عکس هوایی"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/overviewTitle"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/satelliteSelectImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:onClick="onSatelliteImageSelect"
+            android:text="انتخاب تصویر"
+            app:layout_constraintLeft_toRightOf="@+id/satelliteRemoveImage"
+            app:layout_constraintRight_toRightOf="@+id/satelliteTitle"
+            app:layout_constraintTop_toBottomOf="@+id/satelliteTitle" />
+
+        <ImageButton
+            android:id="@+id/satelliteRemoveImage"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:onClick="onSatelliteImageRemove"
+            android:src="@android:drawable/ic_menu_delete"
+            app:layout_constraintBottom_toBottomOf="@+id/satelliteSelectImage"
+            app:layout_constraintLeft_toLeftOf="@+id/satelliteTitle"
+            app:layout_constraintTop_toTopOf="@+id/satelliteSelectImage" />
+
+        <TextView
+            android:id="@+id/overviewTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="نمای کلی"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/satelliteTitle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/overviewSelectImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:onClick="onOverviewImageSelect"
+            android:text="انتخاب تصویر"
+            app:layout_constraintLeft_toRightOf="@+id/overviewRemoveImage"
+            app:layout_constraintRight_toRightOf="@+id/overviewTitle"
+            app:layout_constraintTop_toBottomOf="@+id/overviewTitle" />
+
+        <ImageButton
+            android:id="@+id/overviewRemoveImage"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:onClick="onOverviewImageRemove"
+            android:src="@android:drawable/ic_menu_delete"
+            app:layout_constraintBottom_toBottomOf="@+id/overviewSelectImage"
+            app:layout_constraintLeft_toLeftOf="@+id/overviewTitle"
+            app:layout_constraintTop_toTopOf="@+id/overviewSelectImage" />
+
+        <ImageView
+            android:id="@+id/overviewImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:background="#c0c0c0"
+            android:onClick="onOverviewImageClick"
+            android:src="@{bridge.overviewViewImageFilename}"
+            android:text="انتخاب تصویر"
+            app:bridgeId="@{bridge.bridgeId}"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toRightOf="@+id/satelliteImage"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/overviewSelectImage"
+            app:roadId="@{bridge.roadId}" />
+
+        <ImageView
+            android:id="@+id/satelliteImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:background="#c0c0c0"
+            android:onClick="onSatelliteImageClick"
+            android:src="@{bridge.satelliteViewImageFilename}"
+            android:text="انتخاب تصویر"
+            app:bridgeId="@{bridge.bridgeId}"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/overviewImage"
+            app:layout_constraintTop_toBottomOf="@+id/satelliteSelectImage"
+            app:roadId="@{bridge.roadId}" />
+
+
+        <TextView
+            android:id="@+id/crossoverTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="نمای متقاطع"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/streetTitle"
+            app:layout_constraintTop_toBottomOf="@+id/satelliteImage" />
+
+        <Button
+            android:id="@+id/crossoverSelectImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:onClick="onCrossoverImageSelect"
+            android:text="انتخاب تصویر"
+            app:layout_constraintLeft_toRightOf="@+id/crossoverRemoveImage"
+            app:layout_constraintRight_toRightOf="@+id/crossoverTitle"
+            app:layout_constraintTop_toBottomOf="@+id/crossoverTitle" />
+
+        <ImageButton
+            android:id="@+id/crossoverRemoveImage"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:onClick="onCrossoverImageRemove"
+            android:src="@android:drawable/ic_menu_delete"
+            app:layout_constraintBottom_toBottomOf="@+id/crossoverSelectImage"
+            app:layout_constraintLeft_toLeftOf="@+id/crossoverTitle"
+            app:layout_constraintTop_toTopOf="@+id/crossoverSelectImage" />
+
+        <TextView
+            android:id="@+id/streetTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="نمای سواره رو"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/crossoverTitle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/overviewImage" />
+
+        <Button
+            android:id="@+id/streetSelectImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:onClick="onStreetImageSelect"
+            android:text="انتخاب تصویر"
+            app:layout_constraintLeft_toRightOf="@+id/streetRemoveImage"
+            app:layout_constraintRight_toRightOf="@+id/streetTitle"
+            app:layout_constraintTop_toBottomOf="@+id/streetTitle" />
+
+        <ImageButton
+            android:id="@+id/streetRemoveImage"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:onClick="onStreetImageRemove"
+            android:src="@android:drawable/ic_menu_delete"
+            app:layout_constraintBottom_toBottomOf="@+id/streetSelectImage"
+            app:layout_constraintLeft_toLeftOf="@+id/streetTitle"
+            app:layout_constraintTop_toTopOf="@+id/streetSelectImage" />
+
+        <ImageView
+            android:id="@+id/streetImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:background="#c0c0c0"
+            android:onClick="onStreetImageClick"
+            android:src="@{bridge.streetViewImageFilename}"
+            android:text="انتخاب تصویر"
+            app:bridgeId="@{bridge.bridgeId}"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toRightOf="@+id/crossoverImage"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/streetSelectImage"
+            app:roadId="@{bridge.roadId}" />
+
+        <ImageView
+            android:id="@+id/crossoverImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:background="#c0c0c0"
+            android:onClick="onCrossoverImageClick"
+            android:src="@{bridge.crossoverViewImageFilename}"
+            android:text="انتخاب تصویر"
+            app:bridgeId="@{bridge.bridgeId}"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/streetImage"
+            app:layout_constraintTop_toBottomOf="@+id/crossoverSelectImage"
+            app:roadId="@{bridge.roadId}" />
+
+        <TextView
+            android:id="@+id/baladastTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="نمای بالادست"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toRightOf="@+id/paeanadastTitle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/streetImage" />
+
+        <Button
+            android:id="@+id/baladastSelectImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:onClick="onBaladastImageSelect"
+            android:text="انتخاب تصویر"
+            app:layout_constraintLeft_toRightOf="@+id/streetRemoveImage"
+            app:layout_constraintRight_toRightOf="@+id/streetTitle"
+            app:layout_constraintTop_toBottomOf="@+id/baladastTitle" />
+
+        <ImageButton
+            android:id="@+id/baladastRemoveImage"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:onClick="onBaladastImageRemove"
+            android:src="@android:drawable/ic_menu_delete"
+            app:layout_constraintBottom_toBottomOf="@+id/baladastSelectImage"
+            app:layout_constraintLeft_toLeftOf="@+id/baladastTitle"
+            app:layout_constraintTop_toTopOf="@+id/baladastSelectImage" />
+
+        <ImageView
+            android:id="@+id/baladastImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:background="#c0c0c0"
+            android:onClick="onBaladasttreetImageClick"
+            android:src="@{bridge.baladastViewImageFilename}"
+            android:text="انتخاب تصویر"
+            app:bridgeId="@{bridge.bridgeId}"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toRightOf="@+id/crossoverImage"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/baladastSelectImage"
+            app:roadId="@{bridge.roadId}" />
+
+        <TextView
+            android:id="@+id/paeanadastTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="نمای پایین دست"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/streetTitle"
+            app:layout_constraintTop_toBottomOf="@+id/crossoverImage" />
+
+        <Button
+            android:id="@+id/paeandastSelectImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:onClick="onPaeandastImageSelect"
+            android:text="انتخاب تصویر"
+            app:layout_constraintLeft_toRightOf="@+id/crossoverRemoveImage"
+            app:layout_constraintRight_toRightOf="@+id/paeanadastTitle"
+            app:layout_constraintTop_toBottomOf="@+id/paeanadastTitle" />
+
+        <ImageButton
+            android:id="@+id/paeandastRemoveImage"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:onClick="onPaeandastImageRemove"
+            android:src="@android:drawable/ic_menu_delete"
+            app:layout_constraintBottom_toBottomOf="@+id/paeandastSelectImage"
+            app:layout_constraintLeft_toLeftOf="@+id/crossoverTitle"
+            app:layout_constraintTop_toTopOf="@+id/paeandastSelectImage" />
+
+        <ImageView
+            android:id="@+id/paeandastImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:adjustViewBounds="true"
+            android:background="#c0c0c0"
+            android:onClick="onPaeandastImageClick"
+            android:src="@{bridge.paeandastViewImageFilename}"
+            android:text="انتخاب تصویر"
+            app:bridgeId="@{bridge.bridgeId}"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/streetImage"
+            app:layout_constraintTop_toBottomOf="@+id/paeandastSelectImage"
+            app:roadId="@{bridge.roadId}" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

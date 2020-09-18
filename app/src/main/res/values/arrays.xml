@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="road_direction_list">
+        <item>انتخاب کنید</item>
+        <item>رفت</item>
+        <item>برگشت</item>
+        <item>رفت و برگشت</item>
+    </array>
+
+    <array name="road_type_list">
+        <item>انتخاب کنید</item>
+        <item>آزادراه</item>
+        <item>بزرگراه</item>
+        <item>اصلی شریانی</item>
+        <item>اصلی غیرشریانی</item>
+        <item>فرعی و روستایی</item>
+    </array>
+
+    <array name="bridge_structural_system_list">
+        <item>انتخاب کنید</item>
+        <item>صفحه ای (دال)</item>
+        <item>دال و تیره</item>
+        <item>خرپایی</item>
+        <item>قوسی (طاقی)</item>
+        <item>قابی</item>
+        <item>صندوقه ای</item>
+        <item>معلق</item>
+        <item>ترکه ای</item>
+        <item>باسکولی</item>
+        <item>سایر</item>
+    </array>
+
+    <array name="bridge_crossover_damage_type_list">
+        <item>انتخاب کنید</item>
+        <item>رودخانه دایمی</item>
+        <item>رودخانه فصلی</item>
+        <item>مسیل</item>
+        <item>آبرو</item>
+        <item>کانال</item>
+        <item>جاده</item>
+        <item>راه آهن</item>
+        <item>دره</item>
+        <item>سایر</item>
+    </array>
+
+    <array name="bridge_material_type_type_list">
+        <item>انتخاب کنید</item>
+        <item>بتنی</item>
+        <item>فولادی</item>
+        <item>سنگی</item>
+        <item>بتنی - فولادی</item>
+        <item>سایر</item>
+    </array>
+
+    <array name="element_list">
+        <item>انتخاب کنید</item>
+        <item>پی (بتن مسلح)</item>
+        <item>ستون و پایه (بتن مسلح)</item>
+        <item>ستون و پایه (فولاد)</item>
+        <item>ستون و پایه (مصالح بنایی)</item>
+        <item>تیر (بتن مسلح)</item>
+        <item>تیر (فولاد)</item>
+        <item>سر ستون (بتن مسلح)</item>
+        <item>سر ستون (فولاد)</item>
+        <item>تیکه گاه (لاستیک)</item>
+        <item>تیکه گاه (فولاد)</item>
+        <item>کابل سازه ای (فولاد)</item>
+        <item>عضو خرپایی (فولاد)</item>
+        <item>دال (بتن مسلح)</item>
+        <item>دال دسترسی (بتن مسلح)</item>
+        <item>کوله (بتن مسلح یا وزنی)</item>
+        <item>کوله (مصالح بنایی)</item>
+        <item>دهانه پل (نامشخص)</item>
+        <item>دیوار برگشتی یا دیوار حائل (بتن مسلح یا وزنی)</item>
+        <item>دیوار برگشتی یا دیوار حائل (خاک مسلح)</item>
+        <item>دیوار برگشتی یا دیوار حائل (سنگ)</item>
+        <item>دیوار برگشتی یا دیوار حائل (گابیون)</item>
+        <item>برید (بتن-سنگ-گابیون)</item>
+        <item>رادیه (بتن-سنگ)</item>
+        <item>درز انبساط (الاستومری-فلزی)</item>
+        <item>درز انبساط (ماستیک/آسفالتی)</item>
+        <item>زهکشی (فلز- پی وی سی)</item>
+        <item>رویه (آسفالت)</item>
+        <item>رویه (فولاد)</item>
+        <item>رویه (بتن)</item>
+        <item>حفاظ و نرده (فولاد)</item>
+        <item>حفاظ و نرده (بتن)</item>
+        <item>پیاده رو (بتن مسلح)</item>
+        <item>قرنیز (بتن مسلح)</item>
+        <item>پی (سنگ)</item>
+    </array>
+
+    <array name="damage_level_list">
+        <item>انتخاب کنید</item>
+        <item>کم</item>
+        <item>متوسط</item>
+        <item>زیاد</item>
+    </array>
+
+    <array name="investigation_status_list">
+        <item>امکان بازدید دارد</item>
+        <item>عدم امکان بازدید</item>
+    </array>
+
+    <array name="investigation_problem_list">
+        <item>--------</item>
+        <item>انسداد دو دهانه</item>
+        <item>ارتفاع زیاد آب در طول دهانه</item>
+        <item>عدم وجود ارتفاع آزاد مناسب</item>
+    </array>
+
+    <array name="rank_list">
+        <item>انتخاب کنید</item>
+        <item>وضعیت خوب</item>
+        <item>وضعیت کلی خوب</item>
+        <item>وضعیت احتیاطی</item>
+        <item>وضعیت بحرانی</item>
+        <item>وضعیت فوق بحرانی</item>
+        <item>وضعیت وخیم</item>
+
+    </array>
+
+</resources>

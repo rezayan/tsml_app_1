@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">شناسنامه فنی پل</string>
+
+    <string name="google_maps_key">AIzaSyBvxYB59OGOyu1mW0yfTKkp-TNimJnX2WI</string>
+
+    <string name="title_roads">مسیر ها</string>
+    <string name="title_bridges">پل های مسیر</string>
+    <string name="title_new_road">تعریف مسیر جدید</string>
+    <string name="title_edit_road">ویرایش مسیر</string>
+    <string name="title_new_bridge">تعریف پل جدید</string>
+    <string name="title_edit_bridge">ویرایش پل</string>
+    <string name="title_province">اداره کل راهداری</string>
+    <string name="title_county">نام حوزه شهرستان</string>
+    <string name="title_road_direction">جهت مسیر</string>
+    <string name="title_road_type">نوع محور</string>
+    <string name="title_construction_year">سال ساخت</string>
+    <string name="title_structural_system">سیستم سازه ای پل</string>
+    <string name="title_crossover_damage_type">نوع عارضه متقاطع</string>
+    <string name="title_rank_type">رتبه بندی</string>
+    <string name="title_material_type">نوع مصالح</string>
+    <string name="title_from_gallery">از گالری</string>
+    <string name="title_from_camera">از دوربین</string>
+    <string name="title_from_map">از نقشه</string>
+    <string name="title_select_image_from_gallery">از عکس گالری</string>
+    <string name="title_select">انتخاب</string>
+    <string name="title_select_map">انتخاب تصویر هوایی</string>
+    <string name="title_element">عضو</string>
+    <string name="title_investigation_staus">وضعیت بازدید</string>
+    <string name="title_investigation_problem">علت</string>
+    <string name="title_damage">آسیب</string>
+    <string name="title_damage_level">میزان آسیب</string>
+    <string name="title_new_damage">تعریف آسیب جدید</string>
+    <string name="title_edit_damage">ویرایش آسیب</string>
+    <string name="title_abouts">درباره نرم افزار</string>
+    <string name="title_capture_image">عکس برداری</string>
+    <string name="title_backup">آماده سازی فایل خروجی</string>
+
+    <string name="message_location_access_need">برنامه برای ادامه کار نیاز به دسترسی به موقعیت مکانی شما دارد.</string>
+    <string name="message_location_disabled">لطفا موقعیت مکانی خود را فعال کنید.</string>
+    <string name="message_company">شرکت مهندسان مشاور آزمایشگاه فنی و مکانیک خاک وزارت راه و شهرسازی</string>
+    <string name="message_creator">کاوش راه اندیشه (کارا)</string>
+    <string name="message_copyright">حقوق نرم افزار برای مهندسان مشاور کاوش راه اندیشه (کارا) محفوظ می باشد.</string>
+
+    <string name="action_cancel">انصراف</string>
+    <string name="action_enable">فعال سازی</string>
+
+
+    <string name="g_rank_type">توضیح متناظر هر وضعیت :</string>
+    <string name="g_rank_type1">1- وضعیت خوب: در حال حاضر و در كوتاه‌مدت نيازي به مرمت وجود ندارد.</string>
+    <string name="g_rank_type2">2- وضعيت كلي خوب: پتانسيل انجام اقدامات نگهداري متعارف در حد جزيي و براي اجزاي نه چندان مهم وجود دارد.</string>
+    <string name="g_rank_type3">3- وضعيت احتياطي: رسيدگي در كوتاه‌مدت و اقدام در كوتاه‌مدت يا ميان‌مدت لازم است. پتانسيل اعمال محدوديت‌هاي بهره‌برداري و انجام اقدامات بهسازي كلي به منظور بازيافت وضعيت اوليه يا مطلوب (بهسازي سريع) وجود دارد.</string>
+    <string name="g_rank_type4">4- وضعيت بحراني: عضو، زيرمجموعه يا مجموعه پل عملكرد مطلوب خود را از دست داده و نياز عاجل و اضطراري به اقدامات عملي مرمت، بهسازي و ايمن سازي وجود دارد.</string>
+    <string name="g_rank_type5">5- وضعيت فوق بحراني: ضروري است راه مسدود شود و پل از بهره برداري خارج گردد تا مطالعات امكان سنجي در ارتباط با شيوه‌هاي مرمت و ايمن سازي با رعايت جنبه‌هاي فني و اقتصادي به عمل آيد.</string>
+    <string name="g_rank_type6">6- وضعيت وخيم: از نظر فني و اقتصادي مشخصات اقدامات عملي مرمت و ايمن سازي قابل توجيه نبوده و تخريب و بازسازي يا استفاده از گزينه‌هاي ديگري از مسير براي ايجاد ارتباط توجيه پذير است. </string>
+</resources>

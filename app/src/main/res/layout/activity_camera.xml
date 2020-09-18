@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.activities.MainActivity">
+
+    <data>
+
+        <variable
+            name="locationEnabled"
+            type="boolean" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_margin="0dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:titleMargin="0dp" />
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:visibility="@{locationEnabled?View.VISIBLE:View.GONE}">
+
+                <TextView
+                    android:id="@+id/gpsXTitleTextView"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:text=" :X"
+                    android:textStyle="bold"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/gpsXValueTextView"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:singleLine="false"
+                    android:text="-"
+                    app:layout_constraintRight_toLeftOf="@+id/gpsXTitleTextView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/gpsYTitleTextView"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="4dp"
+                    android:text=" :Y"
+                    android:textStyle="bold"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/gpsXValueTextView" />
+
+                <TextView
+                    android:id="@+id/gpsYValueTextView"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="4dp"
+                    android:singleLine="false"
+                    android:text="-"
+                    app:layout_constraintRight_toLeftOf="@+id/gpsYTitleTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/gpsXValueTextView" />
+
+                <TextView
+                    android:id="@+id/azimuthTitleTextView"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="4dp"
+                    android:text="آزیموت: "
+                    android:textStyle="bold"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/gpsYValueTextView" />
+
+                <TextView
+                    android:id="@+id/azimuthValueTextView"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="4dp"
+                    android:singleLine="false"
+                    android:text="-"
+                    app:layout_constraintRight_toLeftOf="@+id/azimuthTitleTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/gpsYValueTextView" />
+
+                <com.redinput.compassview.CompassView
+                    android:id="@+id/compass"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:backgroundColor="#000000"
+                    app:degrees="0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/azimuthValueTextView"
+                    app:lineColor="#FFFFFF"
+                    app:markerColor="#FF0000"
+                    app:rangeDegrees="180.0"
+                    app:showMarker="true"
+                    app:textColor="#FFFFFF"
+                    app:textSize="15sp" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/listBackground"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.otaliastudios.cameraview.CameraView
+                android:id="@+id/camera"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:keepScreenOn="true"
+                app:cameraFacing="back"
+                app:cameraFlash="off"
+                app:cameraGesturePinch="zoom"
+                app:cameraPictureSizeMaxHeight="1500"
+                app:cameraPictureSizeMaxWidth="1500"
+                app:cameraPlaySounds="false"
+                app:cameraSessionType="picture"
+                app:cameraWhiteBalance="auto" />
+
+            <ZoomControls
+                android:id="@+id/zoomControl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <ImageView
+                android:id="@+id/cameraPreviewImageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@+id/camera"
+                app:layout_constraintLeft_toLeftOf="@+id/camera"
+                app:layout_constraintRight_toRightOf="@+id/camera"
+                app:layout_constraintTop_toTopOf="@+id/camera" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_request_location"
+        android:title="دریافت موقعیت"
+        android:icon="@android:drawable/ic_menu_mylocation"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_capture"
+        android:title="ذخیره تصویر"
+        android:icon="@android:drawable/ic_menu_camera"
+        app:showAsAction="always" />
+</menu>

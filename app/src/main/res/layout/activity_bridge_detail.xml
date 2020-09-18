@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.activities.MainActivity">
+
+    <data>
+
+        <variable
+            name="bridge"
+            type="ir.topcoders.pol.data.model.Bridge" />
+
+        <variable
+            name="loadingDamage"
+            type="boolean" />
+
+        <variable
+            name="isEmptyDamage"
+            type="boolean" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_margin="0dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:titleMargin="0dp" />
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                app:tabBackground="@drawable/tab_color_selector"
+                android:layout_height="wrap_content"
+                app:tabGravity="fill"
+                app:tabMode="fixed"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+        </android.support.design.widget.AppBarLayout>
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/scroller"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/listBackground"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/identical"
+                    layout="@layout/layout_bridge_detail_identical_tab"
+                    android:visibility="visible"
+                    app:bridge="@{bridge}" />
+
+                <include
+                    android:id="@+id/geometric"
+                    layout="@layout/layout_bridge_detail_geometric_tab"
+                    android:visibility="gone"
+                    app:bridge="@{bridge}" />
+
+                <include
+                    android:id="@+id/pictures"
+                    layout="@layout/layout_bridge_detail_pictures_tab"
+                    android:visibility="gone"
+                    app:bridge="@{bridge}" />
+
+                <include
+                    android:id="@+id/rank"
+                    layout="@layout/layout_bridge_detail_rank_tab"
+                    android:visibility="gone"
+                    app:bridge="@{bridge}" />
+
+                <include
+                    android:id="@+id/damages"
+                    layout="@layout/layout_bridge_detail_damage_tab"
+                    android:visibility="gone"
+                    app:isEmptyDamage="@{isEmptyDamage}"
+                    app:loadingDamage="@{loadingDamage}" />
+
+            </FrameLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

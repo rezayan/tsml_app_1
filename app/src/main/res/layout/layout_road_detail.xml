@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.activities.MainActivity">
+
+    <data>
+
+        <variable
+            name="road"
+            type="ir.topcoders.pol.data.model.Road" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="left"
+            app:constraint_referenced_ids="registerDateTitle,provinceTitle,countyTitle,roadStartNameTitle,roadEndNameTitle,roadStartGpsTitle,roadCodeTitle,roadDirectionTitle,roadTypeTitle" />
+
+        <TextView
+            android:id="@+id/registerDateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تاریخ تکمیل فرم"
+            app:layout_constraintBaseline_toBaselineOf="@+id/registerDateValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/registerDateValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:editable="false"
+            android:singleLine="true"
+            android:text="@={road.registrationDate}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/provinceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_province"
+            app:layout_constraintBaseline_toBaselineOf="@+id/provinceValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Spinner
+            android:id="@+id/provinceValue"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:prompt="@string/title_province"
+            android:spinnerMode="dialog"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/registerDateValue" />
+
+        <TextView
+            android:id="@+id/countyTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_county"
+            app:layout_constraintBaseline_toBaselineOf="@+id/countyValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Spinner
+            android:id="@+id/countyValue"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:prompt="@string/title_county"
+            android:spinnerMode="dialog"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/provinceValue" />
+
+        <TextView
+            android:id="@+id/roadStartNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="مبدا محور"
+            app:layout_constraintBaseline_toBaselineOf="@+id/roadStartNameValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/roadStartNameValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:singleLine="true"
+            android:text="@={road.startName}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/countyValue" />
+
+        <TextView
+            android:id="@+id/roadEndNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="مقصد محور"
+            app:layout_constraintBaseline_toBaselineOf="@+id/roadEndNameValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/roadEndNameValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:singleLine="true"
+            android:text="@={road.stopName}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/roadStartNameValue" />
+
+        <TextView
+            android:id="@+id/roadStartGpsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="مبدا کیلومترگذاری"
+            app:layout_constraintBaseline_toBaselineOf="@+id/roadStartGpsXValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/roadStartGpsXValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:hint="X"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:text="@={road.startGpsX}"
+            app:layout_constraintEnd_toStartOf="@+id/roadStartGpsYValue"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roadEndNameValue" />
+
+        <EditText
+            android:id="@+id/roadStartGpsYValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:hint="Y"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:text="@={road.startGpsY}"
+            app:layout_constraintEnd_toStartOf="@+id/barrier"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/roadStartGpsXValue"
+            app:layout_constraintTop_toBottomOf="@+id/roadEndNameValue" />
+
+        <Button
+            android:id="@+id/setRoadStartFromGpsService"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="onSetRoadStartFromGpsClick"
+            android:text="اخذ موقعیت از GPS"
+            app:layout_constraintLeft_toLeftOf="@+id/roadStartGpsXValue"
+            app:layout_constraintRight_toRightOf="@+id/roadStartGpsYValue"
+            app:layout_constraintTop_toBottomOf="@+id/roadStartGpsXValue" />
+
+        <TextView
+            android:id="@+id/roadCodeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="کد مسیر"
+            app:layout_constraintBaseline_toBaselineOf="@+id/roadCodeValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/roadCodeValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:singleLine="true"
+            android:text="@={road.code}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/setRoadStartFromGpsService" />
+
+        <TextView
+            android:id="@+id/roadDirectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_road_direction"
+            app:layout_constraintBaseline_toBaselineOf="@+id/roadDirectionValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Spinner
+            android:id="@+id/roadDirectionValue"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:entries="@array/road_direction_list"
+            android:prompt="@string/title_road_direction"
+            android:selectedItemPosition="@={road.direction}"
+            android:spinnerMode="dialog"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/roadCodeValue" />
+
+        <TextView
+            android:id="@+id/roadTypeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_road_type"
+            app:layout_constraintBaseline_toBaselineOf="@+id/roadTypeValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Spinner
+            android:id="@+id/roadTypeValue"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:entries="@array/road_type_list"
+            android:prompt="@string/title_road_type"
+            android:selectedItemPosition="@={road.type}"
+            android:spinnerMode="dialog"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/roadDirectionValue" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.activities.MainActivity">
+
+    <data>
+
+        <variable
+            name="bridge"
+            type="ir.topcoders.pol.data.model.Bridge" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="left"
+            app:constraint_referenced_ids="craterCountTitle,widestCraterLengthTitle,widthTitle,heightTitle,laneCountTitle,materialTypeTitle,freeHeightTitle,hasAlternativeRouteTitle" />
+
+        <TextView
+            android:id="@+id/craterCountTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تعداد دهانه ها"
+            app:layout_constraintBaseline_toBaselineOf="@+id/craterCountValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/craterCountValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:inputType="number"
+            android:singleLine="true"
+            android:text="@={bridge.craterCount}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/widestCraterLengthTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="طول بزرگترین دهانه (M)"
+            app:layout_constraintBaseline_toBaselineOf="@+id/widestCraterLengthValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/widestCraterLengthValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:text="@={bridge.widestCraterLength}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/craterCountValue" />
+
+        <TextView
+            android:id="@+id/widthTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="عرض کل پل (M)"
+            app:layout_constraintBaseline_toBaselineOf="@+id/widthValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/widthValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:text="@={bridge.width}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/widestCraterLengthValue" />
+
+        <TextView
+            android:id="@+id/heightTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="طول کل پل (M)"
+            app:layout_constraintBaseline_toBaselineOf="@+id/heightValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/heightValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:text="@={bridge.height}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/widthValue" />
+
+        <TextView
+            android:id="@+id/laneCountTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تعداد خطوط ترافیکی"
+            app:layout_constraintBaseline_toBaselineOf="@+id/laneCountValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/laneCountValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:inputType="number"
+            android:singleLine="true"
+            android:text="@={bridge.laneCount}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/heightValue" />
+
+        <TextView
+            android:id="@+id/materialTypeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_material_type"
+            app:layout_constraintBaseline_toBaselineOf="@+id/materialTypeValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Spinner
+            android:id="@+id/materialTypeValue"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:entries="@array/bridge_material_type_type_list"
+            android:prompt="@string/title_material_type"
+            android:selectedItemPosition="@={bridge.materialType}"
+            android:spinnerMode="dialog"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/laneCountValue" />
+
+        <TextView
+            android:id="@+id/freeHeightTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ارتفاع آزاد (M)"
+            app:layout_constraintBaseline_toBaselineOf="@+id/freeHeightValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/freeHeightValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:text="@={bridge.freeHeight}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/materialTypeValue" />
+
+        <TextView
+            android:id="@+id/hasAlternativeRouteTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="مسیر جایگزین (کنارگذر)"
+            app:layout_constraintBottom_toBottomOf="@+id/hasAlternativeRouteValue"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/hasAlternativeRouteValue" />
+
+        <RadioGroup
+            android:id="@+id/hasAlternativeRouteValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/freeHeightValue">
+
+            <RadioButton
+                android:id="@+id/hasAlternativeRoute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={bridge.hasAlternativeRoute}"
+                android:text="دارد" />
+
+            <RadioButton
+                android:id="@+id/hasNotAlternativeRoute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={!bridge.hasAlternativeRoute}"
+                android:layout_marginLeft="50dp"
+                android:text="ندارد" />
+        </RadioGroup>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

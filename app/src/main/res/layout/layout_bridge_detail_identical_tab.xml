@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.activities.MainActivity">
+
+    <data>
+
+        <import type="ir.topcoders.pol.utils.persian_tools.IranianUtils" />
+
+        <variable
+            name="bridge"
+            type="ir.topcoders.pol.data.model.Bridge" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="left"
+            app:constraint_referenced_ids="registerDateTitle,bridgeCodeTitle,stationTitle,bridgeNameTitle,constructionYearTitle,gpsTitle,structuralSystemTitle,crossoverDamageTypeTitle" />
+
+        <TextView
+            android:id="@+id/registerDateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تاریخ تکمیل فرم"
+            app:layout_constraintBaseline_toBaselineOf="@+id/registerDateValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/registerDateValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:editable="false"
+            android:singleLine="true"
+            android:text="@={bridge.registrationDate}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bridgeCodeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="کد پل"
+            app:layout_constraintBaseline_toBaselineOf="@+id/bridgeCodeValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/bridgeCodeValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:singleLine="true"
+            android:text="@={bridge.bridgeCode}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/registerDateValue" />
+
+        <TextView
+            android:id="@+id/stationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="کیلومتراژ"
+            app:layout_constraintBaseline_toBaselineOf="@+id/stationValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/stationValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:text="@={bridge.station}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/bridgeCodeValue" />
+
+        <TextView
+            android:id="@+id/bridgeNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="نام محلی پل"
+            app:layout_constraintBaseline_toBaselineOf="@+id/bridgeNameValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/bridgeNameValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:singleLine="true"
+            android:text="@={bridge.bridgeName}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/stationValue" />
+
+        <TextView
+            android:id="@+id/constructionYearTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_construction_year"
+            app:layout_constraintBaseline_toBaselineOf="@+id/constructionYearValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Spinner
+            android:id="@+id/constructionYearValue"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:entries="@{IranianUtils.generateYears(500)}"
+            android:prompt="@string/title_construction_year"
+            android:selectedValue="@={bridge.constructionYear}"
+            android:spinnerMode="dialog"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/bridgeNameValue" />
+
+        <TextView
+            android:id="@+id/gpsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="موقعیت"
+            app:layout_constraintBaseline_toBaselineOf="@+id/gpsXValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <EditText
+            android:id="@+id/gpsXValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:text="@={bridge.gpsX}"
+            android:hint="X"
+            app:layout_constraintEnd_toStartOf="@+id/gpsYValue"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constructionYearValue" />
+
+        <EditText
+            android:id="@+id/gpsYValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:inputType="numberDecimal"
+            android:hint="Y"
+            android:singleLine="true"
+            android:text="@={bridge.gpsY}"
+            app:layout_constraintEnd_toStartOf="@+id/barrier"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/gpsXValue"
+            app:layout_constraintTop_toBottomOf="@+id/constructionYearValue" />
+
+        <Button
+            android:id="@+id/setFromGpsService"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="onSetFromGpsClick"
+            android:text="اخذ موقعیت از GPS"
+            app:layout_constraintLeft_toLeftOf="@+id/gpsXValue"
+            app:layout_constraintRight_toRightOf="@+id/gpsYValue"
+            app:layout_constraintTop_toBottomOf="@+id/gpsXValue" />
+
+        <TextView
+            android:id="@+id/structuralSystemTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_structural_system"
+            app:layout_constraintBaseline_toBaselineOf="@+id/structuralSystemValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Spinner
+            android:id="@+id/structuralSystemValue"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:entries="@array/bridge_structural_system_list"
+            android:prompt="@string/title_structural_system"
+            android:selectedItemPosition="@={bridge.structuralSystem}"
+            android:spinnerMode="dialog"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/setFromGpsService" />
+
+        <TextView
+            android:id="@+id/crossoverDamageTypeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_crossover_damage_type"
+            app:layout_constraintBaseline_toBaselineOf="@+id/crossoverDamageTypeValue"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Spinner
+            android:id="@+id/crossoverDamageTypeValue"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
+            android:entries="@array/bridge_crossover_damage_type_list"
+            android:prompt="@string/title_crossover_damage_type"
+            android:selectedItemPosition="@={bridge.crossoverDamageType}"
+            android:spinnerMode="dialog"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/barrier"
+            app:layout_constraintTop_toBottomOf="@+id/structuralSystemValue" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
